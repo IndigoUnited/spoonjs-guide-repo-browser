@@ -1,0 +1,14 @@
+{
+  "name": "github",
+  "version": "0.0.1",
+  "dependencies": {
+    "spoonjs": "*",
+    "requirejs": "~2.1",
+    "requirejs-text": "~2.0",
+    "require-css": "*",
+    "almond": "~0.2",
+    "jquery": "~1.10",
+    "handlebars": "~1.0",
+    "components-bootstrap": "~2.3.2"
+  }
+}
