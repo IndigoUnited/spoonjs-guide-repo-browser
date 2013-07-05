@@ -27,7 +27,7 @@ define([
          * Sets the view state to error.
          */
         error: function () {
-            this._element.html('Oops, something went wrong');
+            this._element.html('Oops, something went wrong..');
             this._element.removeClass('loading');
             this._element.addClass('error');
         },

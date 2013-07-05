@@ -3,8 +3,20 @@
   <li class="active">Issues</li>
 </ul>
 
-<ul>
-{{#each issues}}
-    <li>{{title}}</li>
-{{/each}}
+<ul class="issues-list">
+    {{#each issues}}
+    <li class="clearfix">
+        <div class="main-info">
+            <div class="title"><a href="{{url "show" }}">{{title}}</a> <span class="nr">(#{{number}})</span></div>
+            <div class="by">Open by <span class="user">{{user.login}}</span> {{created_at}}</div>
+        </div>
+        <div class="labels">
+            <ul>
+                {{#each labels}}
+                <li style="background-color: #{{color}}">{{name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </li>
+    {{/each}}
 </ul>

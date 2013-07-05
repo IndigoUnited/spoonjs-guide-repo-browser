@@ -41,7 +41,7 @@ define([
             this._content.appendTo(this._element);
             this._content.loading();
 
-            $.get('https://api.github.com/repos/' + this._org + '/' + this._repo + '/issues?' + (new Date()).getTime())
+            $.get('https://api.github.com/repos/' + this._org + '/' + this._repo + '/issues')
             .then(function (data) {
                 this._content.render({
                     org: this._org,
