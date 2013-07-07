@@ -1,11 +1,11 @@
 define([
     'spoon/View',
     'jquery',
-    'handlebars',
+    'doT',
     'text!./assets/tmpl/app.html',
     'css!./assets/css/app.css',
     'css!bootstrap/css/bootstrap.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
@@ -13,6 +13,6 @@ define([
         $name: 'ApplicationView',
 
         _element: 'div#app',
-        _template: Handlebars.compile(tmpl)
+        _template: doT.template(tmpl)
     });
 });

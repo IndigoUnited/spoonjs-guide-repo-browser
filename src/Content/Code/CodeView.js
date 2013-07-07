@@ -1,10 +1,10 @@
 define([
     'spoon/View',
     'jquery',
-    'handlebars',
+    'doT',
     'text!./assets/tmpl/code.html',
     'css!./assets/css/code.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
@@ -12,7 +12,7 @@ define([
         $name: 'CodeView',
 
         _element: 'div.code',
-        _template: Handlebars.compile(tmpl)
+        _template: doT.template(tmpl)
         /*_events: {
             'click .btn': '_onBtnClick'
         },*/

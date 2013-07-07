@@ -1,10 +1,10 @@
 define([
     'spoon/View',
     'jquery',
-    'handlebars',
+    'doT',
     'text!./assets/tmpl/home.html',
     'css!./assets/css/home.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
@@ -12,7 +12,7 @@ define([
         $name: 'HomeView',
 
         _element: 'div.home',
-        _template: Handlebars.compile(tmpl),
+        _template: doT.template(tmpl),
         _events: {
             'click .btn': '_onBtnClick',
             'focus .input-append': function (e, el) {

@@ -1,10 +1,10 @@
 define([
     'spoon/View',
     'jquery',
-    'handlebars',
+    'doT',
     'text!./assets/tmpl/issues.html',
     'css!./assets/css/issues.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
@@ -12,7 +12,7 @@ define([
         $name: 'IssuesListView',
 
         _element: 'div.issues',
-        _template: Handlebars.compile(tmpl),
+        _template: doT.template(tmpl),
 
         /**
          * Sets the view state to loading.

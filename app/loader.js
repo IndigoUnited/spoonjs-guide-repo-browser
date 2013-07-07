@@ -9,13 +9,10 @@ requirejs.config({
         'text': '../components/requirejs-text/text',
         'has': '../components/has/has',
         'jquery': '../components/jquery/jquery',
-        'handlebars': '../components/handlebars/handlebars',
+        'doT': '../components/doT/doT',
         'bootstrap': '../components/components-bootstrap'
     },
     shim: {
-        'handlebars': {
-            exports: 'Handlebars'
-        },
         'bootstrap/js/bootstrap': {
             deps: ['jquery'],
             exports: '$'

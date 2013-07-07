@@ -1,10 +1,10 @@
 define([
     'spoon/View',
     'jquery',
-    'handlebars',
+    'doT',
     'text!./assets/tmpl/content.html',
     'css!./assets/css/content.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
@@ -12,7 +12,7 @@ define([
         $name: 'ContentView',
 
         _element: 'div.content',
-        _template: Handlebars.compile(tmpl),
+        _template: doT.template(tmpl),
 
         /**
          * Returns the element in which the right content will be shown.
