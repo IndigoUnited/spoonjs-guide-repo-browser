@@ -4,14 +4,14 @@ define([
     'handlebars',
     'text!./assets/tmpl/{{underscoredName}}.html',
     'css!./assets/css/{{underscoredName}}.css'
-], function (View, $, Handlebars, tmpl) {
+], function (View, $, doT, tmpl) {
 
     'use strict';
 
     return View.extend({
         $name: '{{name}}View',
 
-        _template: Handlebars.compile(tmpl)
+        _template: doT.template(tmpl)
         /*_events: {
             'click .btn': '_onBtnClick'
         },*/

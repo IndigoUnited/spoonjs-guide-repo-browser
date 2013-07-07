@@ -1,0 +1,29 @@
+<ul class="breadcrumb">
+  <li><a href="{{! it.$url('../code') }}">{{! it.org }}/{{! it.repo }}</a> <span class="divider">/</span></li>
+  <li><a href="{{! it.$url('index') }}">Issues</a> <span class="divider">/</span></li>
+  <li class="active">{{! it.issue.title}}</li>
+</ul>
+
+<div class="issue-box">
+    <div class="user-avatar"><img src="{{! it.issue.user.avatar_url }}" alt="{{! it.issue.user.login }}" /></div>
+    <div class="issue-wrapper">
+        <div class="clearfix">
+            <div class="main-info">
+                <div class="title"><a href="{{! it.$url('details', { nr: it.issue.number }) }}">{{! it.issue.title }}</a> <span class="nr">(#{{! it.issue.number }})</span></div>
+                <div class="by">Open by <span class="user">{{! it.issue.user.login }}</span> {{! it.issue.created_at }}</div>
+            </div>
+            {{ if (it.issue.labels.length) { }}}
+            <div class="labels">
+                <ul>
+                    {{~it.issue.labels :label}}
+                    <li style="background-color: #{{! label.color }}">{{! label.name }}</li>
+                    {{~}}
+                </ul>
+            </div>
+            {{ } }}
+        </div>
+        <div class="body">{{! it.issue.body }}</div>
+    </div>
+</div>
+
+<!-- TODO: render comments -->

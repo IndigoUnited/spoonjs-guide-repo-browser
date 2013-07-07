@@ -1,8 +1,9 @@
 define([
     'spoon/Controller',
     './IssuesView',
+    './IssueDetailsView',
     'jquery'
-], function (Controller, IssuesView, $) {
+], function (Controller, IssuesView, IssueDetailsView, $) {
 
     'use strict';
 
@@ -11,7 +12,8 @@ define([
 
         _defaultState: 'index',
         _states: {
-            'index': '_indexState'
+            'index': '_indexState',
+            'details(nr)': '_detailsState'
         },
 
         /**
@@ -42,11 +44,39 @@ define([
             this._content.loading();
 
             $.get('https://api.github.com/repos/' + this._org + '/' + this._repo + '/issues')
-            .then(function (data) {
+            .then(function (issues) {
                 this._content.render({
                     org: this._org,
                     repo: this._repo,
-                    issues: data
+                    issues: issues
+                });
+            }.bind(this), function () {
+                this._content.error();
+            }.bind(this));
+        },
+
+        /**
+         * Details state handler.
+         *
+         * @param {Object} state The state parameter bag
+         */
+        _detailsState: function (state) {
+            this._destroyContent();
+
+            this._content = this._link(new IssueDetailsView());
+            this._content.appendTo(this._element);
+            this._content.loading();
+
+            // Make both details and comments requests
+            $.when(
+                $.get('https://api.github.com/repos/' + this._org + '/' + this._repo + '/issues/' + state.nr),
+                $.get('https://api.github.com/repos/' + this._org + '/' + this._repo + '/issues/' + state.nr + '/comments')
+            ).then(function (first, second) {
+                this._content.render({
+                    org: this._org,
+                    repo: this._repo,
+                    issue: first[0],
+                    comments: second[0]
                 });
             }.bind(this), function () {
                 this._content.error();
@@ -62,15 +92,5 @@ define([
                 this._content = null;
             }
         }
-
-        /**
-         * {@inheritDoc}
-         */
-        /*_onDestroy: function () {
-            // Cancel timers, ajax requests and other stuff here
-            // Note that linked child views/controllers are automatically destroyed
-            // when this controller is destroyed
-            Controller.prototype._onDestroy.call(this);
-        }*/
     });
 });
