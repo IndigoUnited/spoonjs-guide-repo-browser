@@ -32,7 +32,6 @@ define([
             if (matches) {
                 this._upcast('go', { org: matches[1], repo: matches[2] });
             } else {
-                console.log(el.closest('.input-append'));
                 el.closest('.input-append').addClass('error');
             }
         }

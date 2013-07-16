@@ -10,5 +10,8 @@
     "jquery": "~1.10",
     "doT": "~0.2.0",
     "components-bootstrap": "~2.3.2"
+  },
+  "resolutions": {
+    "jquery": "~1.10"
   }
 }
