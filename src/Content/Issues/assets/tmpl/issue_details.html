@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
-  <li><a href="{{! it.$url('../code') }}">{{! it.org }}/{{! it.repo }}</a> <span class="divider">/</span></li>
-  <li><a href="{{! it.$url('index') }}">Issues</a> <span class="divider">/</span></li>
+  <li><a href="{{! this.url('../code') }}">{{! it.org }}/{{! it.repo }}</a> <span class="divider">/</span></li>
+  <li><a href="{{! this.url('index') }}">Issues</a> <span class="divider">/</span></li>
   <li class="active">{{! it.issue.title}}</li>
 </ul>
 
@@ -9,7 +9,7 @@
     <div class="issue-wrapper">
         <div class="clearfix">
             <div class="main-info">
-                <div class="title"><a href="{{! it.$url('details', { nr: it.issue.number }) }}">{{! it.issue.title }}</a> <span class="nr">(#{{! it.issue.number }})</span></div>
+                <div class="title"><a href="{{! this.url('details', { nr: it.issue.number }) }}">{{! it.issue.title }}</a> <span class="nr">(#{{! it.issue.number }})</span></div>
                 <div class="by">Open by <span class="user">{{! it.issue.user.login }}</span> {{! it.issue.created_at }}</div>
             </div>
             {{ if (it.issue.labels.length) { }}}

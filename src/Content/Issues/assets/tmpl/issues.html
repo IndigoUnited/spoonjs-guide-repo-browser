@@ -1,5 +1,5 @@
 <ul class="breadcrumb">
-  <li><a href="{{! it.$url('../code') }}">{{! it.org }}/{{! it.repo }}</a> <span class="divider">/</span></li>
+  <li><a href="{{! this.url('../code') }}">{{! it.org }}/{{! it.repo }}</a> <span class="divider">/</span></li>
   <li class="active">Issues</li>
 </ul>
 
@@ -7,7 +7,7 @@
     {{~it.issues :issue}}
     <li class="clearfix">
         <div class="main-info">
-            <div class="title"><a href="{{! it.$url('details', { nr: issue.number }) }}">{{! issue.title }}</a> <span class="nr">(#{{! issue.number }})</span></div>
+            <div class="title"><a href="{{! this.url('details', { nr: issue.number }) }}">{{! issue.title }}</a> <span class="nr">(#{{! issue.number }})</span></div>
             <div class="by">Open by <span class="user">{{! issue.user.login }}</span> {{! issue.created_at }}</div>
         </div>
         <div class="labels">
