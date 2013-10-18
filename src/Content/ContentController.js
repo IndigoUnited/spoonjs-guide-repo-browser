@@ -39,7 +39,7 @@ define([
             this.once('link', function () {
                 this._view.render();
                 this._rightElement = this._view.getContentElement();
-            }.bind(this));
+            }, this);
         },
 
         /**
